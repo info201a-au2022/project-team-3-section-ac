@@ -25,7 +25,7 @@ Our main question is, what characteristics are most common in people who have di
 - United States
 
 ## Introduction:
-
+Heart disease has been the leading cause of death in the United States for decades. Despite knowing this, efforts made by the government and health centers to help mitigate the number of deaths have been underwhelming. Our project is designed to analyze the trends in death rates among people who suffer from cardiovascular diseases. Specifically, we are searching for common characteristics that will help to identify the inequalities people face within the healthcare research, diagnosis, and treatment stages for cardiovascular diseases. To do this, we will analyze death rates of cardiovascular disease datasets provided by the CDC. Our goal for this project is to create and provide accessible data visualizations and information to everyone in hopes that the people directly involved, such as policymakers and doctors, understand the possible inequitable conditions that affect people when it comes to cardiovascular disease and strive to make efforts that address those inequalities. 
 
 ## Problem Domain:
  - Project framing 
