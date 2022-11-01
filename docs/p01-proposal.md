@@ -52,9 +52,12 @@ Our main question is, what characteristics are most common in people who have di
 
 ## The Dataset:
 1. The data set relates to our problem domain, which concerns physical health, because it reports the mortality rate of cardiovascular disease by year, county, age (starting from 35), race, and sex. It will enable us to answer our research question about characteristics that correlate to higher risk factors for cardiovascular disease death because that information may be valuable to certain social group’s health. 
-2.  Rates and Trends in Hypertension-related Cardiovascular Disease Mortality Among US Adults (35+) by County, Age Group, Race/Ethnicity, and Sex – 2000-2019. There are 24 columns and 1,103,872 rows. 
-Stroke Mortality Data Among US Adults (35+) by State/Territory and County – 2017-2019. 59,094 rows, 20 colums. 
-Heart Disease Mortality Data Among US Adults (35+) by State/Territory and County – 2016-2018. 59064 rows, 20 columns. 
+2.  Datasets' column and row stats
+
+|   |         | Trends 2000-2019 | Trends 2017-2019 | Trends 2016-2018 |
+|---|---------|------------------|------------------|------------------|
+|   | Rows    | 1,103,872        | 59,094           | 59,064           |
+|   | Columns | 24               | 20               | 20               |
 3. 
   - Centers for Disease Control and Prevention. Heart Disease Mortality Data Among US Adults (35+) by State/Territory and County – 2016-2018 | Chronic Disease and Health Promotion Data & Indicators. 29 Apr. 2020, https://chronicdata.cdc.gov/Heart-Disease-Stroke-Prevention/Heart-Disease-Mortality-Data-Among-US-Adults-35-by/6x7h-usvx. 
   - Rates and Trends in Hypertension-Related Cardiovascular Disease Mortality Among US Adults (35+) by County, Age Group, Race/Ethnicity, and Sex – 2000-2019 | Chronic Disease and Health Promotion Data & Indicators. 19 Feb. 2022, https://chronicdata.cdc.gov/Heart-Disease-Stroke-Prevention/Rates-and-Trends-in-Hypertension-related-Cardiovas/uc9k-vc2j. 
