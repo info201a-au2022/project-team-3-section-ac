@@ -19,7 +19,8 @@ heart_disease2 <- heart_disease1 %>%
 
 heart_disease3 <- heart_disease2 %>% 
   filter(Stratification3 == "Overall") %>% 
-  rename(fips = LocationID)
+  filter(Stratification1 == "Ages 35-64 years") %>% 
+  rename(fips = LocationID) 
 
 heart_disease4 <- heart_disease3 %>% 
   group_by(LocationAbbr) %>% 
@@ -28,6 +29,7 @@ heart_disease4 <- heart_disease3 %>%
 View(heart_disease4)
 View(heart_disease3)
 View(statepop)
+
 plot_usmap(data = heart_disease4, values = "total_data", color = "white") +
   scale_fill_continuous(name = "Average heart disease per 100,000 people in 2019", label = scales::comma) +
   theme(legend.position = "right")
