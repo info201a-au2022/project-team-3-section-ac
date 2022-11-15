@@ -14,26 +14,26 @@ source("../source/summary_info.R")
 For our project, we investigated a data set about the rates and trends of cardiovascular disease in the
 United States in search of possible risk factors or other power issues. We narrowed our data down to
 Washington state and discovered that the county with the highest deaths of 65+ year olds per 100,000
-people was `r summary_info$county_most_65_above_deaths_per_100000_in_wa$LocationDesc` in 
-`r summary_info$county_most_65_above_deaths_per_100000_in_wa$Year` with 
-`r round(summary_info$county_most_65_above_deaths_per_100000_in_wa$Data_Value)` 
-deaths, while the county with the lowest number of deaths per 100,000 people was 
-`r summary_info$county_least_65_above_deaths_per_100000_in_wa$LocationDesc` in 
-`r summary_info$county_least_65_above_deaths_per_100000_in_wa$Year` with 
-`r round(summary_info$county_least_65_above_deaths_per_100000_in_wa$Data_Value)` 
-deaths. Additionally, the county with the least deaths of 35-64 year olds per 100,000 was 
-`r summary_info$county_most_35_to_64_deaths_per_100000_in_wa$LocationDesc` in 
-`r summary_info$county_most_35_to_64_deaths_per_100000_in_wa$Year` with 
-`r round(summary_info$county_most_35_to_64_deaths_per_100000_in_wa$Data_Value)` 
-deaths, while the county with the lowest number of deaths of 35-64 year olds per 100,000 people was 
-`r summary_info$county_least_35_to_64_deaths_per_100000_in_wa$LocationDesc` in 
-`r summary_info$county_least_35_to_64_deaths_per_100000_in_wa$Year` with 
-`r round(summary_info$county_least_35_to_64_deaths_per_100000_in_wa$Data_Value)` 
-deaths. We also found that the county with the highest percent change in death rate in 2010-2019 was 
-`r summary_info$county_most_percent_death_rate_chge_10_to_19$LocationDesc` with a percentage of 
+people was `r summary_info$county_most_65_above_deaths_per_100000_in_wa$LocationDesc` in
+`r summary_info$county_most_65_above_deaths_per_100000_in_wa$Year` with
+`r round(summary_info$county_most_65_above_deaths_per_100000_in_wa$Data_Value)`
+deaths, while the county with the lowest number of deaths per 100,000 people was
+`r summary_info$county_least_65_above_deaths_per_100000_in_wa$LocationDesc` in
+`r summary_info$county_least_65_above_deaths_per_100000_in_wa$Year` with
+`r round(summary_info$county_least_65_above_deaths_per_100000_in_wa$Data_Value)`
+deaths. Additionally, the county with the least deaths of 35-64 year olds per 100,000 was
+`r summary_info$county_most_35_to_64_deaths_per_100000_in_wa$LocationDesc` in
+`r summary_info$county_most_35_to_64_deaths_per_100000_in_wa$Year` with
+`r round(summary_info$county_most_35_to_64_deaths_per_100000_in_wa$Data_Value)`
+deaths, while the county with the lowest number of deaths of 35-64 year olds per 100,000 people was
+`r summary_info$county_least_35_to_64_deaths_per_100000_in_wa$LocationDesc` in
+`r summary_info$county_least_35_to_64_deaths_per_100000_in_wa$Year` with
+`r round(summary_info$county_least_35_to_64_deaths_per_100000_in_wa$Data_Value)`
+deaths. We also found that the county with the highest percent change in death rate in 2010-2019 was
+`r summary_info$county_most_percent_death_rate_chge_10_to_19$LocationDesc` with a percentage of
 `r round(summary_info$county_most_percent_death_rate_chge_10_to_19$Data_Value)` and the county with
-the lowest percentage change in death rate in 2010-2019 was 
-`r summary_info$county_least_percent_death_rate_chge_10_to_19$LocationDesc` with a percentage of 
+the lowest percentage change in death rate in 2010-2019 was
+`r summary_info$county_least_percent_death_rate_chge_10_to_19$LocationDesc` with a percentage of
 `r round(summary_info$county_least_percent_death_rate_chge_10_to_19$Data_Value)`.
 
 ### Overall Changes in Heart Disease and Stroke Death From 2000-2019
