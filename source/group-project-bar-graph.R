@@ -9,7 +9,9 @@ View(heart_disease)
 #code for filtering
 heart_disease_filtered <- heart_disease %>% 
   filter(Year == "2019") %>%
-  filter(Stratification2 != "Overall") %>% 
+  filter(Stratification1 == "Ages 65+ years")
+  filter(Stratification2 != "Overall") %>%
+  filter(Stratification3 == "Overall") %>%
   filter(LocationAbbr == "WA") %>%
   drop_na(Data_Value) %>%
   filter(Data_Value_Unit != "%") %>%
