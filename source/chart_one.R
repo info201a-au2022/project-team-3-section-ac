@@ -5,8 +5,7 @@ library(tidyverse)
 
 filename <- "https://data.cdc.gov/api/views/uc9k-vc2j/rows.csv"
 heart_disease <- read.csv(filename, header = TRUE, stringsAsFactors = FALSE)
-state_fips <- read.csv("https://gist.githubusercontent.com/dantonnoriega/bf1acd2290e15b91e6710b6fd3be0a53/raw/11d15233327c8080c9646c7e1f23052659db251d/us-state-ansi-fips.csv",
-                       header = TRUE, stringsAsFactors = FALSE)
+
 View(state_fips)
 View(heart_disease)
 
