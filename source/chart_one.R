@@ -11,32 +11,38 @@ View(state_fips)
 View(heart_disease)
 
 heart_disease <- heart_disease %>% 
-  drop_na(Data_Value)
-heart_disease1 <- heart_disease %>% 
-  filter(Year == 2019)
-heart_disease2 <- heart_disease1 %>% 
-  filter(Stratification2 == "Overall")
+  drop_na(Data_Value) %>% 
+  select(LocationID, 
+         Year, 
+         LocationAbbr, 
+         LocationDesc, 
+         Data_Value,
+         Data_Value_Type, 
+         Stratification1, 
+         Stratification2, 
+         Stratification3)
 
-heart_disease3 <- heart_disease2 %>% 
-  filter(Stratification3 == "Overall") %>% 
-  filter(Stratification1 == "Ages 35-64 years") %>% 
-  rename(fips = LocationID) 
+wa_2019 <- heart_disease %>% 
+  drop_na(Data_Value) %>% 
+  select(LocationID, 
+         Year, 
+         LocationAbbr, 
+         LocationDesc, 
+         Data_Value,
+         Data_Value_Type, 
+         Stratification1, 
+         Stratification2, 
+         Stratification3) %>% 
+  filter(LocationAbbr == "WA" & Year == 2019 & Stratification2 == "Overall"
+         & Stratification3 == "Overall" & Stratification1 == "Ages 65+ years") %>%
+  rename(fips = LocationID)
+View(wa_2019)
 
-heart_disease4 <- heart_disease3 %>% 
-  group_by(LocationAbbr) %>% 
-  summarize(total_data = mean(Data_Value)) %>% 
-  rename(state = LocationAbbr)
-View(heart_disease4)
-View(heart_disease3)
-View(statepop)
-
-plot_usmap(data = heart_disease4, values = "total_data", color = "white") +
-  scale_fill_continuous(name = "Average heart disease per 100,000 people in 2019", label = scales::comma) +
-  theme(legend.position = "right")
-
-
-plot_usmap(regions = "counties", data = heart_disease3, values = "Data_Value") + 
-  scale_fill_continuous(name = "Heart Disease per 100,000 people", label = scales::comma) + 
-  labs(title = "US Counties") + 
+plot_usmap(regions = "counties", include = c("WA"), data = wa_2019,
+           values = "Data_Value", color = "white") +
+  scale_fill_continuous(name = "Average mortality per 100,000 people",
+                        label = scales::comma) +
+  labs(title = "Average heart disease/stroke mortality per 100,000 people in 2019") +
   theme(legend.position = "right", 
         panel.background = element_rect(color = "black", fill = "lightblue"))
+  
