@@ -79,3 +79,15 @@ summary_info$county_least_percent_death_rate_chge_10_to_19 <- heart_disease %>%
   filter(Data_Value_Unit == "%") %>%
   filter(Data_Value == min(Data_Value)) %>%
   select(LocationDesc, Data_Value)
+
+# Number of average deaths between male and females in Washington for every
+# 100,000 in 2019.
+summary_info$num_avg_deaths_in_wa_for_every_100000_in_2019 <- heart_disease %>%
+  filter(LocationAbbr == "WA") %>%
+  filter(Stratification1 == "Ages 65+ years") %>%
+  drop_na(Data_Value) %>%
+  filter(Data_Value_Unit != "%") %>%
+  filter(Stratification2 == "Overall") %>%
+  filter(Stratification3 == "Overall") %>%
+  filter(Year == 2019) %>%
+  summarize(avg_deaths = sum(Data_Value))
