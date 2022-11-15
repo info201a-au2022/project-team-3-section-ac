@@ -1,0 +1,81 @@
+library(tidyverse)
+library(dplyr)
+
+# Rates and Trends in Hypertension-related Cardiovascular Disease Mortality
+# Among US Adults (35+) by County, Age Group, Race/Ethnicity, and
+# Sex – 2000-2019
+filename <- "https://data.cdc.gov/api/views/uc9k-vc2j/rows.csv"
+heart_disease <- read.csv(filename, header = TRUE, stringsAsFactors = FALSE)
+
+summary_info <- list()
+
+# County with the most 65+ year old deaths per 100000 in Washington in the
+# past 19 years, the number of deaths per 100000, and the year the deaths
+# occurred
+summary_info$county_most_65_above_deaths_per_100000_in_wa <- heart_disease %>%
+  filter(Stratification2 == "Overall") %>%
+  filter(Stratification3 == "Overall") %>%
+  filter(Stratification1 == "Ages 65+ years") %>%
+  filter(LocationAbbr == "WA") %>%
+  drop_na(Data_Value) %>%
+  filter(Data_Value_Unit != "%") %>%
+  filter(Data_Value == max(Data_Value)) %>%
+  select(LocationDesc, Data_Value, Year)
+
+# County with the least 65+ year old deaths per 100000 in Washington in the past
+# 19 years, the number of deaths per 100000, and the year the deaths occurred.
+summary_info$county_least_65_above_deaths_per_100000_in_wa <- heart_disease %>%
+  filter(Stratification2 == "Overall") %>%
+  filter(Stratification3 == "Overall") %>%
+  filter(Stratification1 == "Ages 65+ years") %>%
+  filter(LocationAbbr == "WA") %>%
+  drop_na(Data_Value) %>%
+  filter(Data_Value_Unit != "%") %>%
+  filter(Data_Value == min(Data_Value)) %>%
+  select(LocationDesc, Data_Value, Year)
+
+# County with the most 35-64 year old deaths per 100000 in Washington in the
+# past 19 years, the number of deaths per 100000, and the year the deaths
+# occurred
+summary_info$county_most_35_to_64_deaths_per_100000_in_wa <- heart_disease %>%
+  filter(Stratification2 == "Overall") %>%
+  filter(Stratification3 == "Overall") %>%
+  filter(Stratification1 == "Ages 35-64 years") %>%
+  filter(LocationAbbr == "WA") %>%
+  drop_na(Data_Value) %>%
+  filter(Data_Value_Unit != "%") %>%
+  filter(Data_Value == max(Data_Value)) %>%
+  select(LocationDesc, Data_Value, Year)
+
+# County with the least 35-64 year old deaths per 100000 in Washington in the
+# past 19 years, the number of deaths per 100000, and the year the deaths
+# occurred.
+summary_info$county_least_35_to_64_deaths_per_100000_in_wa <- heart_disease %>%
+  filter(Stratification2 == "Overall") %>%
+  filter(Stratification3 == "Overall") %>%
+  filter(Stratification1 == "Ages 35-64 years") %>%
+  filter(LocationAbbr == "WA") %>%
+  drop_na(Data_Value) %>%
+  filter(Data_Value_Unit != "%") %>%
+  filter(Data_Value == min(Data_Value)) %>%
+  select(LocationDesc, Data_Value, Year)
+
+# County with the highest total percent change in death rate for 35-64 year olds
+# in Washington 2010-2019.
+summary_info$county_most_percent_death_rate_chge_10_to_19 <- heart_disease %>%
+  filter(Stratification1 == "Ages 35-64 years") %>%
+  filter(LocationAbbr == "WA") %>%
+  drop_na(Data_Value) %>%
+  filter(Data_Value_Unit == "%") %>%
+  filter(Data_Value == max(Data_Value)) %>%
+  select(LocationDesc, Data_Value)
+
+# County with the lowest total percent change in death rate for 35-64 year olds
+# in Washington 2010-2019.
+summary_info$county_least_percent_death_rate_chge_10_to_19 <- heart_disease %>%
+  filter(Stratification1 == "Ages 35-64 years") %>%
+  filter(LocationAbbr == "WA") %>%
+  drop_na(Data_Value) %>%
+  filter(Data_Value_Unit == "%") %>%
+  filter(Data_Value == min(Data_Value)) %>%
+  select(LocationDesc, Data_Value)
