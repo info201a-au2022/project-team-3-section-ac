@@ -5,7 +5,7 @@ library(dplyr)
 filename <- "https://data.cdc.gov/api/views/uc9k-vc2j/rows.csv"
 heart_disease_chart <- read.csv(filename, header = TRUE,
                                 stringsAsFactors = FALSE)
-View(heart_disease_chart)
+
 wa <- heart_disease_chart %>%
   drop_na(Data_Value) %>%
   filter(LocationAbbr == "WA") %>%

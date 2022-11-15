@@ -5,7 +5,6 @@ library(tidyverse)
 
 filename <- "https://data.cdc.gov/api/views/uc9k-vc2j/rows.csv"
 heart_disease <- read.csv(filename, header = TRUE, stringsAsFactors = FALSE)
-View(heart_disease)
 
 heart_disease <- heart_disease %>%
   drop_na(Data_Value) %>%

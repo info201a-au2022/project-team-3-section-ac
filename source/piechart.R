@@ -34,8 +34,8 @@ wa_male <- wa_filtered %>%
   summarize(deaths_per_100000 = sum(Data_Value)) %>%
   pull(deaths_per_100000)
 
-percentage_female <- round(wa_female / (wa_female + wa_male) * 100, 0)
-percentage_male <- round(wa_male / (wa_female + wa_male) * 100, 0)
+percentage_female <- round(wa_female / (wa_female + wa_male) * 100)
+percentage_male <- round(wa_male / (wa_female + wa_male) * 100)
 
 df <- data.frame(
   sex = c("Female", "Male"),
@@ -53,5 +53,8 @@ piechart <- ggplot(df, aes(x = "", y = deaths_per_100000, fill = sex)) +
     x = NULL,
     y = "deaths per 100,000",
     fill = NULL,
-    title = "Number of deaths in people ages 65+ due to cardiovascular disease in Washington, 2019"
+    title = str_wrap(
+      "Percentage of deaths in people ages 65+ due to cardiovascular disease by sex in WA, 2019",
+      width = 60
+    )
   )
