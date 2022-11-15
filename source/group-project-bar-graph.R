@@ -3,8 +3,9 @@ library(ggplot2)
 library(tidyverse)
 
 heart_disease <- read.csv("https://data.cdc.gov/api/views/uc9k-vc2j/rows.csv", header = TRUE, stringsAsFactors = FALSE)
-View(dataset)
+View(heart_disease)
 
+#I'm not sure if there's a certain order you want these filtered. - Luna
 heart_disease_filtered <- heart_disease %>% 
   filter(Stratification2 != "Overall") %>% 
   filter(LocationAbbr == "WA") %>%
@@ -26,8 +27,8 @@ select(LocationID,
 ggplot(data = heart_disease_filter) +
   geom_col(mapping = aes(x = Stratification2, fill = Stratification2))
 
-#take out overalls
-#take out any 65+
+#take out overalls from race
+#take out all ages except 65+
 #sort by just counties in Washington, not doing counties anymore
 #make bar graph
 
