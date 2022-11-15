@@ -9,7 +9,31 @@ output: html_document
 source("../source/summary_info.R")
 ```
 
-For our project, we investigated a data set about the rates and trends of cardiovascular disease in the United States in search of possible risk factors or other power issues. We narrowed our data down to Washington state and discovered that the county with the highest deaths of 65+ year olds per 100,000 people was `r summary_info$county_most_65_above_deaths_per_100000_in_wa$LocationDesc` in `r summary_info$county_most_65_above_deaths_per_100000_in_wa$Year` with `r round(summary_info$county_most_65_above_deaths_per_100000_in_wa$Data_Value, 0)` deaths, while the county with the lowest number of deaths per 100,000 people was `r summary_info$county_least_65_above_deaths_per_100000_in_wa$LocationDesc` in `r summary_info$county_least_65_above_deaths_per_100000_in_wa$Year` with `r round(summary_info$county_least_65_above_deaths_per_100000_in_wa$Data_Value, 0)` deaths. Additionally, the county with the least deaths of 35-64 year olds per 100,000 was `r summary_info$county_most_35_to_64_deaths_per_100000_in_wa$LocationDesc` in `r summary_info$county_most_35_to_64_deaths_per_100000_in_wa$Year` with `r round(summary_info$county_most_35_to_64_deaths_per_100000_in_wa$Data_Value,0)` deaths, while the county with the lowest number of deaths per 100,000 people was `r summary_info$county_least_35_to_64_deaths_per_100000_in_wa$LocationDesc` in `r summary_info$county_least_35_to_64_deaths_per_100000_in_wa$Year` with `r round(summary_info$county_least_35_to_64_deaths_per_100000_in_wa$Data_Value,0)` deaths. We also found that the county with the highest percent change in death rate in 2010-2019 was `r summary_info$county_most_percent_death_rate_chge_10_to_19$LocationDesc` with a percentage of `r round(summary_info$county_most_percent_death_rate_chge_10_to_19$Data_Value, 0)` and the county with the lowest percentage change in death rate in 2010-2019 was `r summary_info$county_least_percent_death_rate_chge_10_to_19$LocationDesc` with a percentage of `r round(summary_info$county_least_percent_death_rate_chge_10_to_19$Data_Value, 0)`. Finally, we found that the average number of deaths per 100,000 in all of Washington in 2019 was `r round(summary_info$num_avg_deaths_in_wa_for_every_100000_in_2019, 0)`.
+For our project, we investigated a data set about the rates and trends of cardiovascular disease in the
+United States in search of possible risk factors or other power issues. We narrowed our data down to
+Washington state and discovered that the county with the highest deaths of 65+ year olds per 100,000
+people was `r summary_info$county_most_65_above_deaths_per_100000_in_wa$LocationDesc` in 
+`r summary_info$county_most_65_above_deaths_per_100000_in_wa$Year` with 
+`r round(summary_info$county_most_65_above_deaths_per_100000_in_wa$Data_Value, 0)` 
+deaths, while the county with the lowest number of deaths per 100,000 people was 
+`r summary_info$county_least_65_above_deaths_per_100000_in_wa$LocationDesc` in 
+`r summary_info$county_least_65_above_deaths_per_100000_in_wa$Year` with 
+`r round(summary_info$county_least_65_above_deaths_per_100000_in_wa$Data_Value, 0)` 
+deaths. Additionally, the county with the least deaths of 35-64 year olds per 100,000 was 
+`r summary_info$county_most_35_to_64_deaths_per_100000_in_wa$LocationDesc` in 
+`r summary_info$county_most_35_to_64_deaths_per_100000_in_wa$Year` with `r round(summary_info$county_most_35_to_64_deaths_per_100000_in_wa$Data_Value,0)` 
+deaths, while the county with the lowest number of deaths per 100,000 people was 
+`r summary_info$county_least_35_to_64_deaths_per_100000_in_wa$LocationDesc` in 
+`r summary_info$county_least_35_to_64_deaths_per_100000_in_wa$Year` with 
+`r round(summary_info$county_least_35_to_64_deaths_per_100000_in_wa$Data_Value,0)` 
+deaths. We also found that the county with the highest percent change in death rate in 2010-2019 was 
+`r summary_info$county_most_percent_death_rate_chge_10_to_19$LocationDesc` with a percentage of 
+`r round(summary_info$county_most_percent_death_rate_chge_10_to_19$Data_Value, 0)` and the county with
+the lowest percentage change in death rate in 2010-2019 was 
+`r summary_info$county_least_percent_death_rate_chge_10_to_19$LocationDesc` with a percentage of 
+`r round(summary_info$county_least_percent_death_rate_chge_10_to_19$Data_Value, 0)`. Finally, we found
+that the average number of deaths per 100,000 in all of Washington in 2019 was 
+`r round(summary_info$num_avg_deaths_in_wa_for_every_100000_in_2019, 0)`.
 
 ### Table
 
@@ -19,22 +43,47 @@ source("../source/table.R")
 kable(wa_table)
 ```
 
-I included a table of the overall changes in heart disease and stroke death from 2000-2019 because it can be helpful to analyze the changes in stroke and heart disease deaths over a period of time. It reveals that Clallam county has the biggest increase in those deaths while Douglas has the biggest decrease in deaths. Also, overall, most counties in Washington have had an increase in stroke and heart disease deaths, which will be helpful with our research question about how has cardiovascular disease and stroke fatalities changed overtime.
+I included a table of the overall changes in heart disease and stroke death from 2000-2019 because it can
+be helpful to analyze the changes in stroke and heart disease deaths over a period of time. It reveals
+that Clallam county has the biggest increase in those deaths while Douglas has the biggest decrease in
+deaths. Also, overall, most counties in Washington have had an increase in stroke and heart disease
+deaths, which will be helpful with our research question about how has cardiovascular disease and stroke
+fatalities changed overtime.
 
 ```{r map, echo=FALSE}
 source("../source/map.R")
 wa_2019_plot
 ```
 
-This map reveals the rates at which people die from heart disease and stroke per 100,000 people in each county. I included the chart because information about what counties have the highest and lowest rates are be easily seen with the bluest counties being the highest and the darkest being the lowest. It reveals counties where rates are highest and lowest. The southern counties seem to have the higher rates with Lewis county being the highest while the northern and northeastern counties have the lower rates. This data will be helpful in answering one of our research questions about why there are differences in rates, specifically if income is a factor.
+This map reveals the rates at which people die from heart disease and stroke per 100,000 people in each
+county. I included the chart because information about what counties have the highest and lowest rates
+are be easily seen with the bluest counties being the highest and the darkest being the lowest. It
+reveals counties where rates are highest and lowest. The southern counties seem to have the higher rates
+with Lewis county being the highest while the northern and northeastern counties have the lower rates.
+This data will be helpful in answering one of our research questions about why there are differences in
+rates, specifically if income is a factor.
 
 ```{r pie chart, echo=FALSE}
 source("../source/piechart.R")
 piechart
 ```
-This is a pie chart that shows the number of deaths per 100,000 people for people ages 65+ in Washington during 2019. From the pie chart, we can see that for every 100,000 people, slightly more than 30,000 people ages 65+ die and among these roughly 30,000 people, 53% of them are male and 47% are female. This chart is included because our project seeks to find possible risk factors for cardiovascular disease. As you can see from the chart, a possible risk factor for cardiovascular disease in Washington is determined by sex, specifically if an individual is male. By identifying this information, we can investigate more data revolving around the sex of people who have died of cardiovascular disease and determine if the disparity was due to chance or other underlying factors.
+This is a pie chart that shows the number of deaths per 100,000 people for people ages 65+ in Washington
+during 2019. From the pie chart, we can see that for every 100,000 people, slightly more than 30,000
+people ages 65+ die and among these roughly 30,000 people, 53% of them are male and 47% are female. This
+chart is included because our project seeks to find possible risk factors for cardiovascular disease. As
+you can see from the chart, a possible risk factor for cardiovascular disease in Washington is determined
+by sex, specifically if an individual is male. By identifying this information, we can investigate more
+data revolving around the sex of people who have died of cardiovascular disease and determine if the
+disparity was due to chance or other underlying factors.
 
 ```{r bar plot, echo= FALSE}
 source("../source/group-project-bar-graph.R")
 bargraph
 ```
+This is a bar chart that shows how many deaths there are per 100,000 people ages 65+ in Washington during
+2019 for different races. From this data set we can see that white people seem to die the most out of
+every other race by an extremely high amount, hispanics die the second most black people and American
+Indians die the least.However we suspect that it's because white people heart diseases reporting more
+because they typically go to a hospital versus other races will die home because I don't have the money
+to go to hospital. We can see by looking at the original unfiltered data set that a lot of the data on
+other races other than white are non-existent.
