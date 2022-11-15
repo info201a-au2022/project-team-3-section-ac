@@ -43,7 +43,7 @@ df <- data.frame(
   percentage_of_deaths = c(percentage_female, percentage_male)
 )
 
-ggplot(df, aes(x = "", y = deaths_per_100000, fill = sex)) +
+piechart <- ggplot(df, aes(x = "", y = deaths_per_100000, fill = sex)) +
   geom_bar(stat = "identity", width = 1) +
   coord_polar("y", start = 0) +
   geom_text(aes(label = paste0(percentage_of_deaths, "%")),

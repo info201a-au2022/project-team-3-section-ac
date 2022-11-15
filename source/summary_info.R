@@ -3,7 +3,7 @@ library(dplyr)
 
 # Rates and Trends in Hypertension-related Cardiovascular Disease Mortality
 # Among US Adults (35+) by County, Age Group, Race/Ethnicity, and
-# Sex – 2000-2019
+# Sex ??? 2000-2019
 filename <- "https://data.cdc.gov/api/views/uc9k-vc2j/rows.csv"
 heart_disease <- read.csv(filename, header = TRUE, stringsAsFactors = FALSE)
 
@@ -90,4 +90,5 @@ summary_info$num_avg_deaths_in_wa_for_every_100000_in_2019 <- heart_disease %>%
   filter(Stratification2 == "Overall") %>%
   filter(Stratification3 == "Overall") %>%
   filter(Year == 2019) %>%
-  summarize(avg_deaths = sum(Data_Value))
+  summarize(avg_deaths = sum(Data_Value)) %>%
+  pull(avg_deaths)
