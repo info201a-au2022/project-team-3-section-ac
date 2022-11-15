@@ -53,5 +53,5 @@ ggplot(df, aes(x = "", y = deaths_per_100000, fill = sex)) +
     x = NULL,
     y = "deaths per 100,000",
     fill = NULL,
-    title = "Number of deaths due to cardiovascular disease in Washington, 2019"
+    title = "Number of deaths in people ages 65+ due to cardiovascular disease in Washington, 2019"
   )
