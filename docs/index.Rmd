@@ -88,16 +88,16 @@ source("../source/group-project-bar-graph.R")
 bargraph
 ```
 
-This is a bar graph that shows the median number of deaths of 65+ year olds per 100,000 people in Washington during the year
-2019. We created this bar graph because we wanted to assess if race had any influence on the risk on dying to cardiovascular
-disease. Our bar graph shows Black people are the number one race that died from cardiovascular disease. The graph shows that
-they die significantly more than any other race. However, this may be due to there being a small amount of observations on Black
-people in our data set. For the 2nd most deaths, White people and American Indian and Alaska Native are a close tie but White
-people are a little higher. For the races with the least cardiovascular disease death Hispanic and Asian and Pacific Islander
-are a close tie with Asian and Pacific Islander being slightly higher. American Indian and Alaska Natives having the same death
-rates as White people is suspicious because other research has shown that American Indian and Alaskan Natives live in poor
-reservations. After investigating our data set we discovered that, like Black people, American Indians and Alaskan Natives do
-not have many observations. This is probably due to there not being a high American Indian and Alaskan Native population. Our
-data set consists mostly of data on the white population. Perhaps if we took data from all over the world instead of just
-Washington, we would have reached a different conclusion. However, our graph does reveal to us that there seems to be a possible
-risk factor for Black people and a slight disparity in the death rates of White people that should be investigated further.
+This is a bar graph that shows the median number of deaths of 65+ year olds per 100,000 people in Washington during the year 2019. We created this bar graph because we wanted to assess if race had any influence on the risk on dying to cardiovascular
+disease. Our bar graph shows Black people are the number one race that died from cardiovascular disease. The graph shows that they die SIGNIFICANTLY more than any other race. However, this may be due to there being a small amount of observations on Black people in our data set. For the 2nd most deaths, White people and American Indian and Alaska Native are a close tie but White people are a little higher. For the races with the least cardiovascular disease death Hispanic and Asian and Pacific Islander are a close tie with Asian and Pacific Islander being slightly higher. 
+
+
+Analysis:
+American Indian and Alaska Natives having the same death
+rates as White people is suspicious because other research has shown that American Indian and Alaskan Natives live in poor reservations. After investigating our data set we discovered that, like Black people, American Indians and Alaskan Natives do not have many observations. This is probably due to there not being a high American Indian and Alaskan Native population due to the genocide that happened before this data was collected and therefore does not have much data on American Indians. We can see that original dataset had a lot of NAs with the American Indian population. Our data set has the most data on the white population. Their high population is going to make their deaths go up but white privilege is going to make their deaths go down. Our data set consists mostly of data on the white population.
+
+
+Perhaps if we took data from all over the world instead of just
+Washington, we would have reached a different conclusion. However, our graph does reveal to us that there seems to be a possible risk factor for Black people and a slight disparity in the death rates of White people that should be investigated further.
+
+*The correct term for American Indian is indigenous people
