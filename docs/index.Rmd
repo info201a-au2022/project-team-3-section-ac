@@ -67,21 +67,23 @@ This data will be helpful in answering one of our research questions about why t
 rates, specifically if income is a factor.
 
 ```{r pie chart, echo=FALSE}
-source("../source/piechart.R")
-piechart
+source("../source/scatterplot.R")
+scatterplot
 ```
 
-This is a pie chart that shows the number of deaths per 100,000 people for people ages 65+ in Washington
-during 2019 and a percentage representing how many of those people were male or female. From the pie
-chart, we can see that for every 100,000 people, slightly more than 30,000 people ages 65+ die and among
-these roughly 30,000 people, 53% of them are male and 47% are female. This chart is included because our
-project seeks to find possible risk factors for cardiovascular disease and we wanted to test if there was
-more instances of disease in people of either sex. As you can see from the chart, we found that a
-possible risk factor for death by cardiovascular disease in Washington is being male. By identifying this
-information, we can further investigate data revolving around the sex of people who have died of
-cardiovascular disease and determine if the disparity was due to chance or other underlying factors.
+This is a scatter plot that shows the median deaths per 100,000 people for people ages 65+ in Washington
+over the span of 2000 to 2019. This scatter plot was created in hopes that it would reveal any
+significant changes in the median rates of death due to cardiovascular disease. We could then
+investigate these time ranges for more information about any potential risk factors or events that caused
+the significant decrease or increase in the median death rates. From the scatter plot we can see that in
+2008 Washington had the highest median death rate. The years leading up to 2008 also have considerably
+high numbers compared to 2000. This scatter plot allows us to see that something happened between the
+years 2000 and 2008 that caused a large increase. Additionally, we can see that after 2008, the median
+death rates slowly starting dropping below 400 before rising above again in 2017. Both these time ranges 
+should be further investigated because there may be underlying events that caused these fluctuations,
+like how Washington State implemented a sugar tax.
 
-```{r bar plot, echo= FALSE}
+```{r bar plot, echo= FALSE, message = FALSE}
 source("../source/group-project-bar-graph.R")
 bargraph
 ```

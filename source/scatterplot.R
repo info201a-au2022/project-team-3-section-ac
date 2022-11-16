@@ -27,10 +27,12 @@ wa_median_death_rate_2000_2019 <- wa_filtered %>%
   group_by(Year) %>%
   summarise(median_death_rate = round(median(Data_Value)))
 
-ggplot(data = wa_median_death_rate_2000_2019) +
+scatterplot <- ggplot(data = wa_median_death_rate_2000_2019) +
   aes(x = Year, y = median_death_rate) +
   geom_point(size=3) +
   labs(x = "Year", y = "Median Death Rate") +
-  ggtitle("The Median Death Rates per 100,000 in Washington from 2000 to 2019")
-
+  ylim(300,500) +
+  ggtitle("The Median Death Rates of 65+ Year Olds Due To Cardiovascular Disease
+                          per 100,000 in Washington from 2000 to 2019")
+scatterplot
        

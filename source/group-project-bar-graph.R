@@ -1,6 +1,7 @@
 library(dplyr)
 library(ggplot2)
 library(tidyverse)
+library(scales)
 
 heart_disease <- read.csv("../data/heart_disease_mortality_rates_2000_2019",
   header = TRUE, stringsAsFactors = FALSE
@@ -46,8 +47,9 @@ bargraph <- ggplot(data = heart_disease_filtered) +
       width = 60
     )
   ) +
-  scale_x_discrete(guide = guide_axis(n.dodge = 2))
-
+  scale_x_discrete(labels = label_wrap(10)) +
+  scale_y_continuous(labels = comma)
+bargraph
 # take out overalls from race
 # take out all ages except 65+
 # sort by just counties in Washington, not doing counties anymore
