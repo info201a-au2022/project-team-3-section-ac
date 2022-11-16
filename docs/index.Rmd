@@ -88,7 +88,7 @@ bargraph
 
 This is a bar chart that shows how many deaths there are per 100,000 people ages 65+ in Washington during
 2019 for different races. From this data set we can see that white people seem to die the most out of
-every other race by an extremely high amount, Hispanics die the second most black people and American
+every other race by an extremely high amount, Hispanics die the second most, black people third most and American
 Indians die the least.However we suspect that it's because white people heart diseases reporting more
 because they typically go to a hospital versus other races will die home because I don't have the money
 to go to hospital. We can see by looking at the original unfiltered data set that a lot of the data on

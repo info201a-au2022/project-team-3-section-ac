@@ -3,22 +3,8 @@ library(ggplot2)
 library(usmap)
 library(tidyverse)
 
-filename <- "https://data.cdc.gov/api/views/uc9k-vc2j/rows.csv"
+filename <- "../data/heart_disease_mortality_rates_2000_2019"
 heart_disease <- read.csv(filename, header = TRUE, stringsAsFactors = FALSE)
-
-heart_disease <- heart_disease %>%
-  drop_na(Data_Value) %>%
-  select(
-    LocationID,
-    Year,
-    LocationAbbr,
-    LocationDesc,
-    Data_Value,
-    Data_Value_Type,
-    Stratification1,
-    Stratification2,
-    Stratification3
-  )
 
 wa_2019 <- heart_disease %>%
   drop_na(Data_Value) %>%
@@ -28,7 +14,6 @@ wa_2019 <- heart_disease %>%
     LocationAbbr,
     LocationDesc,
     Data_Value,
-    Data_Value_Type,
     Stratification1,
     Stratification2,
     Stratification3
