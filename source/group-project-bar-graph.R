@@ -7,15 +7,6 @@ heart_disease <- read.csv("../data/heart_disease_mortality_rates_2000_2019",
   header = TRUE, stringsAsFactors = FALSE
 )
 
-# I'm not sure if there's a certain order you want these filtered. - Luna
-# code for filtering
-heart_disease_filtered <- heart_disease %>%
-  filter(Year == "2019") %>%
-  filter(Stratification2 != "Overall") %>%
-  filter(LocationAbbr == "WA")
-
-# I'm not sure if there's a certain order you want these filtered. - Luna
-# code for filtering
 heart_disease_filtered <- heart_disease %>%
   drop_na(Data_Value) %>%
   filter(Year == "2019") %>%
@@ -36,21 +27,25 @@ heart_disease_filtered <- heart_disease %>%
     Stratification3
   )
 
-bargraph <- ggplot(data = heart_disease_filtered) +
-  geom_col(mapping = aes(x = Stratification2, y = Data_Value, fill = Stratification2)) +
+median_death_rate_each_race <- heart_disease_filtered %>%
+  group_by(Stratification2) %>%
+  summarize(median_death_rate = round(median(Data_Value)))
+
+bargraph <- ggplot(data = median_death_rate_each_race) +
+  geom_col(mapping = aes(
+    x = Stratification2,
+    y = median_death_rate,
+    fill = Stratification2
+  )) +
   labs(
     x = "Race",
-    y = "deaths per 100,000",
+    y = "Median Deaths Per 100,000",
     fill = NULL,
     title = str_wrap(
-      "Number of deaths in people ages 65+ due to cardiovascular disease by race in Washington, 2019",
+      "Median Number of Deaths Due To Cardiovascular Disease Per 100,000 In 
+      People Ages 65+ By Race In Washington, 2019",
       width = 60
     )
   ) +
   scale_x_discrete(labels = label_wrap(10)) +
   scale_y_continuous(labels = comma)
-bargraph
-# take out overalls from race
-# take out all ages except 65+
-# sort by just counties in Washington, not doing counties anymore
-# make bar graph
