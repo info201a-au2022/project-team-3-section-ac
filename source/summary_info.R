@@ -4,7 +4,7 @@ library(dplyr)
 # Rates and Trends in Hypertension-related Cardiovascular Disease Mortality
 # Among US Adults (35+) by County, Age Group, Race/Ethnicity, and
 # Sex ??? 2000-2019
-filename <- "https://data.cdc.gov/api/views/uc9k-vc2j/rows.csv"
+filename <- "../data/heart_disease_mortality_rates_2000_2019"
 heart_disease <- read.csv(filename, header = TRUE, stringsAsFactors = FALSE)
 
 summary_info <- list()
