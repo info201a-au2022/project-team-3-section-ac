@@ -2,7 +2,7 @@ library(tidyverse)
 library(dplyr)
 
 
-filename <- "https://data.cdc.gov/api/views/uc9k-vc2j/rows.csv"
+filename <- "../data/heart_disease_mortality_rates_2000_2019"
 heart_disease_chart <- read.csv(filename, header = TRUE,
                                 stringsAsFactors = FALSE)
 

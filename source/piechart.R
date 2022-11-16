@@ -2,7 +2,7 @@ library(tidyverse)
 library(dplyr)
 library(ggplot2)
 
-filename <- "https://data.cdc.gov/api/views/uc9k-vc2j/rows.csv"
+filename <- "../data/heart_disease_mortality_rates_2000_2019"
 heart_disease <- read.csv(filename, header = TRUE, stringsAsFactors = FALSE)
 
 wa_filtered <- heart_disease %>%
