@@ -1,18 +1,8 @@
-#
-# This is the user-interface definition of a Shiny web application. You can
-# run the application by clicking 'Run App' above.
-#
-# Find out more about building applications with Shiny here:
-#
-#    http://shiny.rstudio.com/
-#
-
-# daria's pt start
-library(shiny)
-library(dplyr)
-library(usmap)
-library(ggplot2)
-library(plotly)
+library("shiny")
+library("dplyr")
+library("usmap")
+library("ggplot2")
+library("plotly")
 
 intro <- tabPanel(
   "Introduction",
@@ -23,8 +13,7 @@ intro <- tabPanel(
 map_input <- sidebarPanel(uiOutput("selectState"),
                           uiOutput("selectYear"))
 
-state_map <- 
-  mainPanel(plotlyOutput("map"))
+state_map <- mainPanel(plotlyOutput("map"))
 
 map_page <- tabPanel(
   "Map", 
@@ -35,10 +24,33 @@ map_page <- tabPanel(
   )
 )
 
+scatterplot_ui <- tabPanel(
+  "Median Death Rate in Each State",
+  titlePanel("How has the median heart disease rate per 100,000 changed over
+    time in each state?"),
+  sidebarLayout(
+    sidebarPanel(
+      selectInput(
+        "scatterplotState",
+        "Select a State",
+        c(
+          "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FL", "GA", "HI",
+          "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN",
+          "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH",
+          "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA",
+          "WV", "WI", "WY"
+        )
+      )
+    ),
+    mainPanel(
+      plotOutput(outputId = "scatterplotState")
+    )
+  )
+)
 
-shinyUI(navbarPage(
-  title = "Project Heart Disease",
+ui <- navbarPage(
+  "Project Heart Disease",
   intro,
-  map_page
-))
-# daria's pt end 
+  map_page,
+  scatterplot_ui
+)

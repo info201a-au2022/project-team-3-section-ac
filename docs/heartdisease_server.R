@@ -11,8 +11,6 @@ df <- read.csv(filename, header = TRUE, stringsAsFactors = FALSE)
 df_years <- df %>% 
   filter(Data_Value_Unit != "%") %>% 
   filter(Stratification1 == "Ages 65+ years") %>%
-  filter(Stratification2 == "Overall") %>%
-  filter(Stratification3 == "Overall") %>%
   rename(fips = LocationID)
 
 # Scatterplot filtered dataframe
@@ -47,7 +45,9 @@ server <- function(input, output) {
   output$map <- renderPlotly({
     map_data <- df_years %>%
       filter(LocationAbbr %in% input$state) %>%
-      filter(Year %in% input$year)
+      filter(Year %in% input$year) %>% 
+      filter(Stratification2 == "Overall") %>%
+      filter(Stratification3 == "Overall") 
     
     map_plot <- plot_usmap(
       regions = "counties", include = input$state, data = map_data,
@@ -68,6 +68,7 @@ server <- function(input, output) {
     
     map_plot
   })
+  
   # Scatterplot page
   output$scatterplotState <- renderPlot({
     filtered <- filtered %>%

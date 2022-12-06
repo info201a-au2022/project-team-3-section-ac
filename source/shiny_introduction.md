@@ -1,4 +1,4 @@
-![Drawing of a man about to have a stroke](../heart_disease_photo.jpeg)
+![Drawing of a man about to have a stroke](../data/heart_disease_photo.jpeg)
 
 ## Introduction 
 

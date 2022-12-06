@@ -1,32 +1,31 @@
-#
-# This is the server logic of a Shiny web application. You can run the
-# application by clicking 'Run App' above.
-#
-# Find out more about building applications with Shiny here:
-#
-#    http://shiny.rstudio.com/
-#
+library("shiny")
+library("dplyr")
+library("ggplot2")
+library("tidyverse")
+library("usmap")
 
-library(shiny)
-library(dplyr)
-library(usmap)
-library(ggplot2)
-library(plotly)
+filename <- "../data/heart_disease_mortality_rates_2000_2019"
+df <- read.csv(filename, header = TRUE, stringsAsFactors = FALSE)
 
-# basic dataframe
-df <- read.csv("../data/heart_disease_mortality_rates_2000_2019",
-               header = TRUE, stringsAsFactors = FALSE)
-
+# Map filtered dataframe
 df_years <- df %>% 
   filter(Data_Value_Unit != "%") %>% 
   filter(Stratification1 == "Ages 65+ years") %>%
+  rename(fips = LocationID) %>% 
+  filter(Stratification2 == "Overall") %>%
+  filter(Stratification3 == "Overall")
+
+# Scatterplot filtered dataframe
+filtered <- df %>%
+  filter(Stratification1 == "Ages 65+ years") %>%
   filter(Stratification2 == "Overall") %>%
   filter(Stratification3 == "Overall") %>%
-  rename(fips = LocationID)
+  drop_na(Data_Value) %>%
+  filter(Data_Value_Unit != "%")
 
 
-# outputs the map page
-shinyServer(function(input, output) {
+server <- function(input, output) {
+  # Map page
   output$selectState <- renderUI({
     selectInput(
       inputId = "state",
@@ -49,25 +48,43 @@ shinyServer(function(input, output) {
     map_data <- df_years %>%
       filter(LocationAbbr %in% input$state) %>%
       filter(Year %in% input$year)
-
+    
     map_plot <- plot_usmap(
       regions = "counties", include = input$state, data = map_data,
       values = "Data_Value", color = "white"
     ) +
-    scale_fill_continuous(
-      name = "Rates per 100,000 people",
-      label = scales::comma
-    ) +
-    labs(title = paste(
-      "Heart disease/stroke mortality",
-      "rates per 100,000 people"
-    )) +
-    theme(
-      legend.position = "right",
-      panel.background = element_rect(color = "white", fill = "lightblue")
-    )
-
+      scale_fill_continuous(
+        name = "Rates per 100,000 people",
+        label = scales::comma
+      ) +
+      labs(title = paste(
+        "Heart disease/stroke mortality",
+        "rates per 100,000 people"
+      )) +
+      theme(
+        legend.position = "right",
+        panel.background = element_rect(color = "white", fill = "lightblue")
+      )
+    
     map_plot
   })
   
-})
+  # Scatterplot page
+  output$scatterplotState <- renderPlot({
+    filtered <- filtered %>%
+      filter(LocationAbbr %in% input$scatterplotState) %>%
+      group_by(Year) %>%
+      summarise(median_death_rate = round(median(Data_Value)))
+    
+    scatterplot <- ggplot(data = filtered) +
+      aes(x = Year, y = median_death_rate) +
+      geom_point(size = 3) +
+      labs(x = "Year", y = "Median Deaths Per 100,000") +
+      ggtitle(paste(
+        "The Median Death Rates of 65+ Year Olds Due To",
+        "Cardiovascular Disease per 100,000 in", input$scatterplotState,
+        "from 2000 to 2019"
+      ))
+    scatterplot
+  })
+}
