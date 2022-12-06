@@ -7,7 +7,7 @@ library("plotly")
 intro <- tabPanel(
   "Introduction",
   titlePanel("Exploring Heart Disease and Stroke Trends"),
-  includeMarkdown("../source/shiny_introduction.md")
+  includeMarkdown("../docs/shiny_introduction.md")
 )
 
 map_input <- sidebarPanel(uiOutput("selectState"),
