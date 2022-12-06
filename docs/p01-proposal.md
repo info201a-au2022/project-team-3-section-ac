@@ -86,4 +86,4 @@ I would like to thank our TA Darren for responding to so many of our questions a
 - https://healthdata.gov/dataset/Rates-and-Trends-in-Hypertension-related-Cardiovas/8sg3-w2fs
 - https://healthdata.gov/dataset/Stroke-Mortality-Data-Among-US-Adults-35-by-State-/h9by-wuv2
 - https://healthdata.gov/dataset/Heart-Disease-Mortality-Data-Among-US-Adults-35-by/pwn5-iqp5
-
+- https://health.clevelandclinic.org/is-heart-disease-curable/ (photo)
