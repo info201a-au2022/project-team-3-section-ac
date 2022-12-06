@@ -76,6 +76,9 @@ Cardiovascular doctors, pulmonary doctors, and dietitians could use this to bett
 ## Limitations:
 We may need to address that there may not be enough data imputed for certain years, mainly the earlier years. There may be other factors that may have caused a patient to die, not just cardiovascular disease, so that might skewer the data. There are also limitations to the grouping of nominal data. The race/ethnicity category does not consider groups who may be multiracial. Sex is divided up to male or female, so that does not consider if one is intersex. Furthermore, assuming sex refers to biological sex and not gender, transgender people’s experiences with health. To address this data, we will probably have to explicitly say what the limitations of categories are. As for the lack of data in some parts, we will not include those sections when summarizing data to analyze.
 
+## Acknowledgements
+I would like to thank our TA Darren for responding to so many of our questions about the assignment! Also I want to thank AG-8 for introducing to me the includeMarkdown function. 
+
 ## References
 - https://my.clevelandclinic.org/health/articles/23051-ethnicity-and-heart-disease
 - https://www.nih.gov/news-events/nih-research-matters/stress-links-poverty-inflammation-heart-disease
