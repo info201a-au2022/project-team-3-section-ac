@@ -54,6 +54,7 @@ barchart_input <- sidebarPanel(uiOutput("selectState_barchart"),
 
 state_barchart <- mainPanel(plotlyOutput("barchart"))
 
+# The full barchart page
 barchart_page <- tabPanel(
   "Barchart",
   titlePanel("Median Cardiovascular Disease and Stroke Death Rates of Various Races"),
@@ -63,12 +64,14 @@ barchart_page <- tabPanel(
   )
 )
 
+# Full Report
 report_page <- tabPanel(
   "Full Report",
   includeMarkdown("../docs/p01-proposal.md")
 )
 
 ui <- navbarPage(
+  theme = shinythemes::shinytheme("united"),
   "Project Heart Disease",
   intro,
   map_page,
