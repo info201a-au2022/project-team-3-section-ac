@@ -12,6 +12,7 @@ library(dplyr)
 library(usmap)
 library(ggplot2)
 
+# basic dataframe
 df <- read.csv("../data/heart_disease_mortality_rates_2000_2019",
                header = TRUE, stringsAsFactors = FALSE)
 
@@ -23,7 +24,7 @@ df_years <- df %>%
   rename(fips = LocationID)
 
 
-# Define server logic required to draw a histogram
+# outputs the map page
 shinyServer(function(input, output) {
   output$selectState <- renderUI({
     selectInput(
@@ -42,14 +43,6 @@ shinyServer(function(input, output) {
       selected = "2019"
     )
   })
-  
-  
-  
-  # data_filt <- reactive({
-  #   map_data <- df_years %>%
-  #     filter(LocationAbbr %in% input$state) %>%
-  #     filter(Year %in% input$year)
-  # })
   
   output$map <- renderPlotly({
     map_data <- df_years %>%
