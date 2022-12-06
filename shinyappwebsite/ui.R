@@ -9,6 +9,10 @@
 
 # daria's pt start
 library(shiny)
+library(dplyr)
+library(usmap)
+library(ggplot2)
+library(plotly)
 
 intro <- tabPanel(
   "Introduction",

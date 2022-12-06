@@ -11,6 +11,7 @@ library(shiny)
 library(dplyr)
 library(usmap)
 library(ggplot2)
+library(plotly)
 
 # basic dataframe
 df <- read.csv("../data/heart_disease_mortality_rates_2000_2019",
