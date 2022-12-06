@@ -16,7 +16,7 @@ map_input <- sidebarPanel(uiOutput("selectState"),
 state_map <- mainPanel(plotlyOutput("map"))
 
 map_page <- tabPanel(
-  "Map", 
+  "Rates by County", 
   titlePanel("How Heart Diseases Affects Counties"),
   sidebarLayout(
     map_input,
@@ -56,7 +56,7 @@ state_barchart <- mainPanel(plotlyOutput("barchart"))
 
 # The full barchart page
 barchart_page <- tabPanel(
-  "Barchart",
+  "Median Death Rates by Race",
   titlePanel("Median Cardiovascular Disease and Stroke Death Rates of Various Races"),
   sidebarLayout(
     barchart_input,
