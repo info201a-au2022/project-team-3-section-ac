@@ -49,10 +49,10 @@ shinyServer(function(input, output) {
       filter(LocationAbbr %in% input$state) %>%
       filter(Year %in% input$year)
 
-  map_plot <- plot_usmap(
-    regions = "counties", include = input$state, data = map_data,
-    values = "Data_Value", color = "white"
-  ) +
+    map_plot <- plot_usmap(
+      regions = "counties", include = input$state, data = map_data,
+      values = "Data_Value", color = "white"
+    ) +
     scale_fill_continuous(
       name = "Rates per 100,000 people",
       label = scales::comma
@@ -66,7 +66,7 @@ shinyServer(function(input, output) {
       panel.background = element_rect(color = "white", fill = "lightblue")
     )
 
-  map_plot
+    map_plot
   })
   
 })
