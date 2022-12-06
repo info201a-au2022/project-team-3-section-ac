@@ -34,7 +34,8 @@ df_barchart <- df %>%
   filter(Data_Value_Unit != "%")
 
 server <- function(input, output) {
-  # Map page
+  
+  # Map state selector
   output$selectState <- renderUI({
     selectInput(
       inputId = "state",
@@ -44,6 +45,7 @@ server <- function(input, output) {
     )
   })
   
+  # Map year selector
   output$selectYear <- renderUI({
     selectInput(
       inputId = "year",
@@ -54,7 +56,6 @@ server <- function(input, output) {
   })
   
   # map plot work 
-  
   map_plot <- reactive({
     map_data <- df_years %>%
       filter(LocationAbbr %in% input$state) %>%
@@ -104,11 +105,12 @@ server <- function(input, output) {
     scatterplot
   })
   
+  # Scatterplot plot
   output$scatterplotState <- renderPlot({
     scatterplot()
   })
   
-  # barchart page
+  # barchart select year
   output$selectState_barchart <- renderUI({
     selectInput(
       inputId = "state_barchart",
@@ -118,6 +120,7 @@ server <- function(input, output) {
     )
   })
   
+  # barchart select year
   output$selectYear_barchart <- renderUI({
     selectInput(
       inputId = "year_barchart",
@@ -127,6 +130,7 @@ server <- function(input, output) {
     )
   })
   
+  #barchart plot work
   barchart_plot <- reactive({
     barchart_data <- df_barchart %>%
       filter(LocationAbbr %in% input$state_barchart) %>%
@@ -155,6 +159,7 @@ server <- function(input, output) {
     barchart_plot
   })
   
+  # barplot
   output$barchart <- renderPlotly({
     barchart_plot()
   })

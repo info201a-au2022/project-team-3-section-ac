@@ -2,17 +2,21 @@ library("shiny")
 library("ggplot2")
 library("plotly")
 
+# intro page
 intro <- tabPanel(
   "Introduction",
   titlePanel("Exploring Heart Disease and Stroke Trends"),
   includeMarkdown("../docs/shiny_introduction.md")
 )
 
+# input map choices
 map_input <- sidebarPanel(uiOutput("selectState"),
                           uiOutput("selectYear"))
 
+# state map plot
 state_map <- mainPanel(plotlyOutput("map"))
 
+# map page
 map_page <- tabPanel(
   "Rates by County", 
   titlePanel("How Heart Diseases Affects Counties"),
@@ -22,6 +26,7 @@ map_page <- tabPanel(
   )
 )
 
+# scatterplot panel
 scatterplot_ui <- tabPanel(
   "Median Death Rate in Each State",
   titlePanel("How has the median heart disease rate per 100,000 changed over
