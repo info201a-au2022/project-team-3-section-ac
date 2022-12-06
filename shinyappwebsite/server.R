@@ -11,8 +11,7 @@ df <- read.csv(filename, header = TRUE, stringsAsFactors = FALSE)
 
 # Map filtered dataframe
 df_years <- df %>% 
-  filter(Data_Value_Unit != "%") %>% 
-  filter(Stratification1 == "Ages 65+ years") %>%
+  filter(Data_Value_Unit != "%") %>%
   rename(fips = LocationID) %>% 
   filter(Stratification2 == "Overall") %>%
   filter(Stratification3 == "Overall")
@@ -55,11 +54,26 @@ server <- function(input, output) {
     )
   })
   
+  # Map age selector
+  output$selectAge <- renderUI({
+    radioButtons("age", label = "Select an age",
+                 choices = c("Ages 35-64 years", "Ages 65+ years"), 
+                 selected = "Ages 65+ years")
+  })
+  
   # map plot work 
   map_plot <- reactive({
     map_data <- df_years %>%
       filter(LocationAbbr %in% input$state) %>%
       filter(Year %in% input$year)
+    
+    if (input$age == "Ages 35-64 years") {
+      map_data <- map_data %>% 
+        filter(Stratification1 == "Ages 35-64 years")
+    } else {
+      map_data <- map_data %>% 
+        filter(Stratification1 == "Ages 65+ years")
+    }
     
     map_plot <- plot_usmap(
       regions = "counties", include = input$state, data = map_data,
