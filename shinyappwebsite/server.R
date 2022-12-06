@@ -23,6 +23,13 @@ filtered <- df %>%
   drop_na(Data_Value) %>%
   filter(Data_Value_Unit != "%")
 
+#barchart filtered dataframe
+df_barchart <- df %>%
+  filter(Stratification1 == "Ages 65+ years") %>%
+  filter(Stratification2 != "Overall") %>%
+  filter(Stratification3 == "Overall") %>%
+  drop_na(Data_Value) %>%
+  filter(Data_Value_Unit != "%")
 
 server <- function(input, output) {
   # Map page
@@ -87,4 +94,52 @@ server <- function(input, output) {
       ))
     scatterplot
   })
+  
+  # barchart page
+  output$selectState_barchart <- renderUI({
+    selectInput(
+      inputId = "state_barchart",
+      label = "Select a State",
+      choices = distinct(df, LocationAbbr), 
+      selected = "WA"
+    )
+  })
+  
+  output$selectYear_barchart <- renderUI({
+    selectInput(
+      inputId = "year_barchart",
+      label = "Select a year", 
+      choices = distinct(df_years, Year),
+      selected = "2019"
+    )
+  })
+  
+  output$barchart <- renderPlotly({
+    barchart_data <- df_barchart %>%
+      filter(LocationAbbr %in% input$state_barchart) %>%
+      filter(Year %in% input$year_barchart) %>% 
+      group_by(Stratification2) %>% 
+      summarize(median_death_rate = round(median(Data_Value)))
+    
+    barchart_plot <- ggplot(data = barchart_data) +
+      geom_col(mapping = aes(
+        x = Stratification2,
+        y = median_death_rate,
+        fill = Stratification2
+      )) +
+      labs(
+        x = "Race",
+        y = "Median Deaths Per 100,000",
+        fill = NULL,
+        title = str_wrap(
+          "Median Number of Deaths Due To Cardiovascular Disease Per 100,000 In 
+      People Ages 65+ By Race",
+          width = 60
+        )
+      ) +
+      scale_x_discrete(labels = label_wrap(10)) +
+      scale_y_continuous(labels = comma)
+    barchart_plot
+  })
+  
 }

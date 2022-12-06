@@ -3,6 +3,8 @@ library("dplyr")
 library("usmap")
 library("ggplot2")
 library("plotly")
+library("tidyverse")
+library("scales")
 
 intro <- tabPanel(
   "Introduction",
@@ -48,9 +50,25 @@ scatterplot_ui <- tabPanel(
   )
 )
 
+# barchart
+barchart_input <- sidebarPanel(uiOutput("selectState_barchart"),
+                               uiOutput("selectYear_barchart"))
+
+state_barchart <- mainPanel(plotlyOutput("barchart"))
+
+barchart_page <- tabPanel(
+  "Barchart",
+  titlePanel("Median Cardiovascular Disease and Stroke Death Rates of Various Races"),
+  sidebarLayout(
+    barchart_input,
+    state_barchart
+  )
+)
+
 ui <- navbarPage(
   "Project Heart Disease",
   intro,
   map_page,
-  scatterplot_ui
+  scatterplot_ui,
+  barchart_page
 )
