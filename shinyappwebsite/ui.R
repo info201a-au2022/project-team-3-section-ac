@@ -6,9 +6,15 @@
 #
 #    http://shiny.rstudio.com/
 #
+
 # daria's pt start
 library(shiny)
 
+intro <- tabPanel(
+  "Introduction",
+  titlePanel("Exploring Heart Disease and Stroke Trends"),
+  includeMarkdown("../source/shiny_introduction.md")
+)
 
 map_input <- sidebarPanel(uiOutput("selectState"),
                           uiOutput("selectYear"))
@@ -28,6 +34,7 @@ map_page <- tabPanel(
 
 shinyUI(navbarPage(
   title = "Project Heart Disease",
+  intro,
   map_page
 ))
 # daria's pt end 
