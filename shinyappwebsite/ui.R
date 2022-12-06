@@ -64,6 +64,12 @@ barchart_page <- tabPanel(
   )
 )
 
+# Summary Takeaways
+summary_page <- tabPanel(
+  "Summary Takeaways",
+  includeMarkdown("../docs/summary_takeaway.md")
+)
+
 # Full Report
 report_page <- tabPanel(
   "Full Report",
@@ -77,5 +83,6 @@ ui <- navbarPage(
   map_page,
   scatterplot_ui,
   barchart_page,
+  summary_page, 
   report_page
 )
