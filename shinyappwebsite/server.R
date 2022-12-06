@@ -3,6 +3,7 @@ library("dplyr")
 library("ggplot2")
 library("tidyverse")
 library("usmap")
+library("plotly")
 library("scales")
 
 filename <- "../data/heart_disease_mortality_rates_2000_2019"
