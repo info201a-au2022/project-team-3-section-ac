@@ -1,6 +1,4 @@
 library("shiny")
-library("dplyr")
-library("usmap")
 library("ggplot2")
 library("plotly")
 

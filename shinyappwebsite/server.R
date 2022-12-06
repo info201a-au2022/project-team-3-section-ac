@@ -53,7 +53,9 @@ server <- function(input, output) {
     )
   })
   
-  output$map <- renderPlotly({
+  # map plot work 
+  
+  map_plot <- reactive({
     map_data <- df_years %>%
       filter(LocationAbbr %in% input$state) %>%
       filter(Year %in% input$year)
@@ -78,8 +80,13 @@ server <- function(input, output) {
     map_plot
   })
   
+  # map plot 
+  output$map <- renderPlotly({
+    map_plot()
+  })
+  
   # Scatterplot page
-  output$scatterplotState <- renderPlot({
+  scatterplot <- reactive({
     filtered <- filtered %>%
       filter(LocationAbbr %in% input$scatterplotState) %>%
       group_by(Year) %>%
@@ -95,6 +102,10 @@ server <- function(input, output) {
         "from 2000 to 2019"
       ))
     scatterplot
+  })
+  
+  output$scatterplotState <- renderPlot({
+    scatterplot()
   })
   
   # barchart page
@@ -116,7 +127,7 @@ server <- function(input, output) {
     )
   })
   
-  output$barchart <- renderPlotly({
+  barchart_plot <- reactive({
     barchart_data <- df_barchart %>%
       filter(LocationAbbr %in% input$state_barchart) %>%
       filter(Year %in% input$year_barchart) %>% 
@@ -142,6 +153,10 @@ server <- function(input, output) {
       scale_x_discrete(labels = label_wrap(10)) +
       scale_y_continuous(labels = comma)
     barchart_plot
+  })
+  
+  output$barchart <- renderPlotly({
+    barchart_plot()
   })
   
 }
