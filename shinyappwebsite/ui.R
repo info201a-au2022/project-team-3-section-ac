@@ -3,8 +3,6 @@ library("dplyr")
 library("usmap")
 library("ggplot2")
 library("plotly")
-library("tidyverse")
-library("scales")
 
 intro <- tabPanel(
   "Introduction",
@@ -65,10 +63,16 @@ barchart_page <- tabPanel(
   )
 )
 
+report_page <- tabPanel(
+  "Full Report",
+  includeMarkdown("../docs/p01-proposal.md")
+)
+
 ui <- navbarPage(
   "Project Heart Disease",
   intro,
   map_page,
   scatterplot_ui,
-  barchart_page
+  barchart_page,
+  report_page
 )
