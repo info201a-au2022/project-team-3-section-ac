@@ -5,12 +5,13 @@ library(tidyverse)
 library(usmap)
 library(plotly)
 library(scales)
+library(markdown)
 
 # intro page
 intro <- tabPanel(
   "Introduction",
   titlePanel("Exploring Heart Disease and Stroke Trends"),
-  includeMarkdown("../docs/shiny_introduction.md")
+  includeMarkdown("shiny_introduction.md")
 )
 
 # input map choices
@@ -86,6 +87,7 @@ barchart_input <- sidebarPanel(uiOutput("selectState_barchart"),
                                  outliers."))
 
 state_barchart <- mainPanel(plotlyOutput("barchart"))
+# state_barchart <- mainPanel(p("test"))
 
 # The full barchart page
 barchart_page <- tabPanel(
@@ -100,13 +102,13 @@ barchart_page <- tabPanel(
 # Summary Takeaways
 summary_page <- tabPanel(
   "Summary Takeaways",
-  includeMarkdown("../docs/summary_takeaway.md")
+  includeMarkdown("summary_takeaway.md")
 )
 
 # Full Report
 report_page <- tabPanel(
   "Full Report",
-  includeMarkdown("../docs/p01-proposal.md")
+  includeMarkdown("p01-proposal.md")
 )
 
 ui <- navbarPage(

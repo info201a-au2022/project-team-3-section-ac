@@ -1,0 +1,13 @@
+name: debug_copy
+title: debug_copy
+username:
+account: dmang
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 7836033
+bundleId: 6606297
+url: https://dmang.shinyapps.io/debug_copy/
+when: 1670439188.8844
+lastSyncTime: 1670439188.88443
+asMultiple: FALSE
+asStatic: FALSE

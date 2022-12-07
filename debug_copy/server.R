@@ -6,7 +6,7 @@ library(usmap)
 library(plotly)
 library(scales)
 
-filename <- "../data/heart_disease_mortality_rates_2000_2019"
+filename <- "heart_disease_mortality_rates_2000_2019"
 df <- read.csv(filename, header = TRUE, stringsAsFactors = FALSE)
 
 # Map filtered dataframe
@@ -32,6 +32,55 @@ df_barchart <- df %>%
   drop_na(Data_Value) %>%
   filter(Data_Value_Unit != "%")
 
+# # barchart select state
+# output$selectState_barchart <- renderUI({
+#   selectInput(
+#     inputId = "state_barchart",
+#     label = "Select a State",
+#     choices = unique(df_years[, "LocationAbbr"]),
+#     selected = "WA"
+#   )
+# })
+# 
+# # barchart select year
+# output$selectYear_barchart <- renderUI({
+#   selectInput(
+#     inputId = "year_barchart",
+#     label = "Select a year",
+#     choices = unique(df_years[, "Year"]),
+#     selected = "2019"
+#   )
+# })
+# 
+# #barchart plot work
+# barchart_plot <- reactive({
+#   barchart_data <- df_barchart %>%
+#     filter(LocationAbbr %in% "WA") %>%
+#     filter(Year %in% "2019") %>% 
+#     group_by(Stratification2) %>% 
+#     summarize(median_death_rate = round(median(Data_Value)))
+#   
+#   barchart_plot <- ggplot(data = barchart_data) +
+#     geom_col(mapping = aes(
+#       x = Stratification2,
+#       y = median_death_rate,
+#       fill = Stratification2
+#     )) +
+#     labs(
+#       x = "Race",
+#       y = "Median Deaths Per 100,000",
+#       fill = NULL,
+#       title = str_wrap(
+#         "Median Number of Deaths Due To Cardiovascular Disease Per 100,000 In
+#       People Ages 65+ By Race",
+#         width = 60
+#       )
+#     ) +
+#     scale_x_discrete(labels = label_wrap(10)) +
+#     scale_y_continuous(labels = comma)
+#   barchart_plot
+# })
+
 server <- function(input, output) {
   
   # Map state selector
@@ -39,7 +88,7 @@ server <- function(input, output) {
     selectInput(
       inputId = "state",
       label = "Select a State",
-      choices = distinct(df, LocationAbbr), 
+      choices = unique(df_years[, "LocationAbbr"]), 
       selected = "WA"
     )
   })
@@ -49,7 +98,7 @@ server <- function(input, output) {
     selectInput(
       inputId = "year",
       label = "Select a year", 
-      choices = distinct(df_years, Year),
+      choices = unique(df_years[, "Year"]),
       selected = "2019"
     )
   })
@@ -117,12 +166,12 @@ server <- function(input, output) {
     scatterplot()
   })
   
-  # barchart select year
+  # barchart select state
   output$selectState_barchart <- renderUI({
     selectInput(
       inputId = "state_barchart",
       label = "Select a State",
-      choices = distinct(df, LocationAbbr), 
+      choices = unique(df_years[, "LocationAbbr"]), 
       selected = "WA"
     )
   })
@@ -132,19 +181,19 @@ server <- function(input, output) {
     selectInput(
       inputId = "year_barchart",
       label = "Select a year", 
-      choices = distinct(df_years, Year),
+      choices = unique(df_years[, "Year"]),
       selected = "2019"
     )
   })
   
-  #barchart plot work
+  # #barchart plot work
   barchart_plot <- reactive({
     barchart_data <- df_barchart %>%
       filter(LocationAbbr %in% input$state_barchart) %>%
-      filter(Year %in% input$year_barchart) %>% 
-      group_by(Stratification2) %>% 
+      filter(Year %in% input$year_barchart) %>%
+      group_by(Stratification2) %>%
       summarize(median_death_rate = round(median(Data_Value)))
-    
+
     barchart_plot <- ggplot(data = barchart_data) +
       geom_col(mapping = aes(
         x = Stratification2,
@@ -156,7 +205,7 @@ server <- function(input, output) {
         y = "Median Deaths Per 100,000",
         fill = NULL,
         title = str_wrap(
-          "Median Number of Deaths Due To Cardiovascular Disease Per 100,000 In 
+          "Median Number of Deaths Due To Cardiovascular Disease Per 100,000 In
       People Ages 65+ By Race",
           width = 60
         )
@@ -165,10 +214,17 @@ server <- function(input, output) {
       scale_y_continuous(labels = comma)
     barchart_plot
   })
+
+  # barplot
+  output$barchart <- renderPlotly({
+    barchart_plot()
+  })
+  
   
   # barplot
   output$barchart <- renderPlotly({
     barchart_plot()
   })
+  
   
 }
