@@ -12,7 +12,8 @@ intro <- tabPanel(
 # input map choices
 map_input <- sidebarPanel(uiOutput("selectState"),
                           uiOutput("selectYear"),
-                          uiOutput("selectAge"))
+                          uiOutput("selectAge"),
+                          print("test"))
 
 # state map plot
 state_map <- mainPanel(plotlyOutput("map"))
