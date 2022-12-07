@@ -55,7 +55,12 @@ scatterplot_ui <- tabPanel(
 
 # barchart
 barchart_input <- sidebarPanel(uiOutput("selectState_barchart"),
-                               uiOutput("selectYear_barchart"))
+                               uiOutput("selectYear_barchart"),
+                               p("This is a chart of the median rate per 100,000 people ages 65+
+                                 of cardiovasuclar deaths difference races across all for each
+                                 state and year. We chose this graph to see if any races were disaportionally 
+                                 subject to cardiovascular disease. We chose median to get rid of 
+                                 outliers."))
 
 state_barchart <- mainPanel(plotlyOutput("barchart"))
 
