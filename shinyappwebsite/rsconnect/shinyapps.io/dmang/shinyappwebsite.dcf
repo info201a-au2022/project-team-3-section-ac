@@ -1,0 +1,13 @@
+name: shinyappwebsite
+title: shinyappwebsite
+username:
+account: dmang
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 7835388
+bundleId: 6603603
+url: https://dmang.shinyapps.io/shinyappwebsite/
+when: 1670402259.99847
+lastSyncTime: 1670402259.99848
+asMultiple: FALSE
+asStatic: FALSE
