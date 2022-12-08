@@ -12,5 +12,7 @@ example, if we were to investigate the change in death rates for 35 to 64 year o
 ![Median death rates of 65+ year olds due to cardiovascular disease per 100,000 in Washington from 2000 to 2019](Rplot.png)
 
 ## Racial Trends
+This specific data from Washington in 2019 shows Black people are the number one race that died from cardiovascular disease. The graph shows that they die SIGNIFICANTLY more than any other race. However, this may be due to there being a small amount of observations on Black people in our data set. For the 2nd most deaths, White people and American Indian and Alaska Native are a close tie but White people are a little higher. For the races with the least cardiovascular disease death Hispanic and Asian and Pacific Islander are a close tie with Asian and Pacific Islander being slightly higher. Perhaps if we took data from all over the world instead of just
+Washington, we would have reached a different conclusion. However, our graph does reveal to us that there seems to be a possible risk factor for Black people and a slight disparity in the death rates of White people that should be investigated further.
 
 ![Median number of deaths due to cardiovascular disease per 100,000 people in ages 65+ by race in Washington in 2019](Barchart_Takeaway.png)
