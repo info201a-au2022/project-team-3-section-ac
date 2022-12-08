@@ -71,7 +71,7 @@ scatterplot_ui <- tabPanel(
     scatterplot
   ),
   h2("Why is this graph important?"),
-  p("This graph is important because while it doesn't show any dispairities 
+  p("This graph is important because while it doesn't show any disparities 
     outright, it allows us to see the timespans where inequalities were possibly
     occuring. One of the main goals of this graph was to visualize the change
     in the death rates over time to see if, as a country and as states, we were

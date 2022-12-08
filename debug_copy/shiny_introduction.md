@@ -35,6 +35,6 @@ The dataset used for analysing in answering the questions reports the mortality 
 ## Key Findings
 One key finding is that counties with high per capita income in counties might not always equate to a very low cardiovascular disease and stroke mortality rate. This might have to do with other specific variables that originally were not taken into account when thinking about the implications of having the highest and lowest cardiovascular disease and stroke mortality rates such as poverty rate (as opposed to just using the per capita income) and access to healthcare.
 
-From what was found in the scatterplot data, 
+One key finding from the scatter plot is that only about 20 of the states have a lower median death rate in 2019 than in they did in 2000 for 65 plus year olds. This is important to note because this means, in the other 30 states, the rates have gone up over time due to some reason. Some key considerations to make are, "why are the rates going up in some areas and going down in others? Does that mean that states are actively trying to mitigate the deaths through some kind of reform or is it purely a coincidence? If there is some kind of reform, how do we apply that to all states?"
 
 From what was found in the bar chart data,
