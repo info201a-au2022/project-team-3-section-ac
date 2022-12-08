@@ -52,29 +52,46 @@ map_page <- tabPanel(
                             dying of heart disease.")
 )
 
-# scatterplot panel
+# input choices for scatterplot
+scatterplot_input <- sidebarPanel(
+  uiOutput("selectState_scatterplot"),
+  uiOutput("selectAge_scatterplot")
+)
+
+# scatterplot and brief reflection
+scatterplot <- mainPanel(plotlyOutput("scatterplot"))
+
+# scatterplot page
 scatterplot_ui <- tabPanel(
   "Median Death Rate in Each State",
   titlePanel("How has the median heart disease rate per 100,000 changed over
     time in each state?"),
   sidebarLayout(
-    sidebarPanel(
-      selectInput(
-        "scatterplotState",
-        "Select a State",
-        c(
-          "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FL", "GA",
-          "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA",
-          "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY",
-          "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX",
-          "UT", "VT", "VA", "WA", "WV", "WI", "WY"
-        )
-      )
-    ),
-    mainPanel(
-      plotOutput(outputId = "scatterplotState")
-    )
-  )
+    scatterplot_input,
+    scatterplot
+  ),
+  h2("Why is this graph important?"),
+  p("This graph is important because while it doesn't show any dispairities 
+    outright, it allows us to see the timespans where inequalities were possibly
+    occuring. One of the main goals of this graph was to visualize the change
+    in the death rates over time to see if, as a country and as states, we were
+    doing a good job of mitigating the severity of cardiovascular disease or if 
+    more work and reform is needed in our health systems. Another goal of this
+    graph was to highlight spans of time where the death rates were irregular.
+    By doing this, we acknowledge that there are external factors that likely 
+    need to be investigated, such as new policies, the abolishment of policies,
+    food shortages, and economic factors."),
+  h2("Why did we use median?"),
+  p("This graph uses the median death rate per 100,000 people to prevent our
+    interpretations from being skewed by outliers. Several counties, such as
+    Los Angeles, have extremely high death rates and as a result increase the
+    mean death rate of their state significantly."),
+  h2("What are some findings from the data?"),
+  p("From this visualization, we can see that most of the states have a
+    consistent upwards trend in the death rates of 35-64 year olds since 2000.
+    This is largely concerning because heart disease becomes more common the
+    older one ages. There is an obvious need for preventative measures in some
+    way for this group of people who, originally, were not at as much risk.")
 )
 
 # barchart

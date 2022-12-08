@@ -75,12 +75,12 @@ scatterplot_ui <- tabPanel(
   p("This graph is important because while it doesn't show any dispairities 
     outright, it allows us to see the timespans where inequalities were possibly
     occuring. One of the main goals of this graph was to visualize the change
-    in the death rates over time to see if, as a country, we were doing a good
-    job of mitigating the severity of cardiovascular disease or if more work and
-    reform is needed in our health systems. Another goal of this graph was to
-    highlight spans of time where the death rates were irregular. By doing this,
-    we acknowledge that there are external factors that likely need to be
-    investigated, such as new policies, the abolishment of policies,
+    in the death rates over time to see if, as a country and as states, we were
+    doing a good job of mitigating the severity of cardiovascular disease or if 
+    more work and reform is needed in our health systems. Another goal of this
+    graph was to highlight spans of time where the death rates were irregular.
+    By doing this, we acknowledge that there are external factors that likely 
+    need to be investigated, such as new policies, the abolishment of policies,
     food shortages, and economic factors."),
   h2("Why did we use median?"),
   p("This graph uses the median death rate per 100,000 people to prevent our

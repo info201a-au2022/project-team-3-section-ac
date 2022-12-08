@@ -18,7 +18,6 @@ df_years <- df %>%
 
 # Scatterplot filtered dataframe
 filtered <- df %>%
-  filter(Stratification1 == "Ages 65+ years") %>%
   filter(Stratification2 == "Overall") %>%
   filter(Stratification3 == "Overall") %>%
   drop_na(Data_Value) %>%
@@ -94,27 +93,49 @@ server <- function(input, output) {
   })
   
   # Scatterplot page
-  scatterplot <- reactive({
+  
+  # Scatterplot state selector
+  output$selectState_scatterplot <- renderUI({
+    selectInput(
+      inputId = "state_scatterplot",
+      label = "Select a State",
+      choices = distinct(df, LocationAbbr), 
+      selected = "WA"
+    )
+  })
+  
+  # Scatterplot age selector
+  output$selectAge_scatterplot <- renderUI({
+    radioButtons("age_scatterplot", label = "Select an age",
+                 choices = c("Ages 35-64 years", "Ages 65+ years"), 
+                 selected = "Ages 65+ years")
+  })
+  
+  # Creating the scatter/line plot
+  scatterlineplot <- reactive({
     filtered <- filtered %>%
-      filter(LocationAbbr %in% input$scatterplotState) %>%
+      filter(Stratification1 == input$age_scatterplot) %>%
+      filter(LocationAbbr %in% input$state_scatterplot) %>%
       group_by(Year) %>%
       summarise(median_death_rate = round(median(Data_Value)))
     
-    scatterplot <- ggplot(data = filtered) +
-      aes(x = Year, y = median_death_rate) +
-      geom_point(size = 3) +
+    
+    scatterlineplot <- ggplot(data = filtered) +
+      aes(x = Year, y = median_death_rate, group = 1) +
+      geom_point(size = 2) +
+      geom_line() +
       labs(x = "Year", y = "Median Deaths Per 100,000") +
       ggtitle(paste(
-        "The Median Death Rates of 65+ Year Olds Due To",
-        "Cardiovascular Disease per 100,000 in", input$scatterplotState,
+        "The Median Death Rates of", input$age_scatterplot, "Due To",
+        "Cardiovascular Disease per 100,000 in", input$state_scatterplot,
         "from 2000 to 2019"
       ))
-    scatterplot
+    scatterlineplot
   })
   
-  # Scatterplot plot
-  output$scatterplotState <- renderPlot({
-    scatterplot()
+  # Outputting the scatterplot
+  output$scatterplot <- renderPlotly({
+    scatterlineplot()
   })
   
   # barchart select state
