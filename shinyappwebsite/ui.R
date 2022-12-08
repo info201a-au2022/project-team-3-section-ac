@@ -14,83 +14,104 @@ intro <- tabPanel(
 )
 
 # input map choices
-map_input <- sidebarPanel(uiOutput("selectState"),
-                          uiOutput("selectYear"),
-                          uiOutput("selectAge"))
+map_input <- sidebarPanel(
+  uiOutput("selectState"),
+  uiOutput("selectYear"),
+  uiOutput("selectAge")
+)
 
 # state map plot
 state_map <- mainPanel(plotlyOutput("map"))
 
 # map page
 map_page <- tabPanel(
-  "Rates by County", 
+  "Rates by County",
   titlePanel("How Heart Diseases Affects Counties"),
   sidebarLayout(
     map_input,
     state_map
   ),
   p("The different state maps and their respective
-                            counties show the different cardiovascular disease
-                            and stroke death rates for either people ages 35-64
-                            years or people ages 65+ in each county of a given
-                            state and a given year. It shows the overall
-                            population rate rather than individual races or
-                            gender to paint a full picture of the entire
-                            population. The purpose of the map is to visualize 
-                            the counties that have the highest and lowest
-                            rates, and if there are any changes to the lowest
-                            and highest rates throughout the years. Looking at
-                            different county rates is important because one can
-                            analyze specific counties as to what feature
-                            differences they have that could influence the
-                            heart disease and stroke death rates that they
-                            have. One thing that has seemed to be consistent
-                            throughout the age populations is that rates for 
-                            35-64 years are much lower than 65+, which reflects 
-                            the fact that older people have a higher chance of
-                            dying of heart disease.")
+    counties show the different cardiovascular disease
+    and stroke death rates for either people ages 35-64
+    years or people ages 65+ in each county of a given
+    state and a given year. It shows the overall
+    population rate rather than individual races or
+    gender to paint a full picture of the entire
+    population. The purpose of the map is to visualize
+    the counties that have the highest and lowest
+    rates, and if there are any changes to the lowest
+    and highest rates throughout the years. Looking at
+    different county rates is important because one can
+    analyze specific counties as to what feature
+    differences they have that could influence the
+    heart disease and stroke death rates that they
+    have. One thing that has seemed to be consistent
+    throughout the age populations is that rates for
+    35-64 years are much lower than 65+, which reflects
+    the fact that older people have a higher chance of
+    dying of heart disease.")
 )
 
-# scatterplot panel
+# input choices for scatterplot
+scatterplot_input <- sidebarPanel(
+  uiOutput("selectState_scatterplot"),
+  uiOutput("selectAge_scatterplot")
+)
+
+# scatterplot and brief reflection
+scatterplot <- mainPanel(plotlyOutput("scatterplot"))
+
+# scatterplot page
 scatterplot_ui <- tabPanel(
   "Median Death Rate in Each State",
   titlePanel("How has the median heart disease rate per 100,000 changed over
     time in each state?"),
   sidebarLayout(
-    sidebarPanel(
-      selectInput(
-        "scatterplotState",
-        "Select a State",
-        c(
-          "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FL", "GA", "HI",
-          "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN",
-          "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH",
-          "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA",
-          "WV", "WI", "WY"
-        )
-      )
-    ),
-    mainPanel(
-      plotOutput(outputId = "scatterplotState")
-    )
-  )
+    scatterplot_input,
+    scatterplot
+  ),
+  h2("Why is this graph important?"),
+  p("This graph is important because while it doesn't show any dispairities 
+    outright, it allows us to see the timespans where inequalities were possibly
+    occuring. One of the main goals of this graph was to visualize the change
+    in the death rates over time to see if, as a country, we were doing a good
+    job of mitigating the severity of cardiovascular disease or if more work and
+    reform is needed in our health systems. Another goal of this graph was to
+    highlight spans of time where the death rates were irregular. By doing this,
+    we acknowledge that there are external factors that likely need to be
+    investigated, such as new policies, the abolishment of policies,
+    food shortages, and economic factors."),
+  h2("Why did we use median?"),
+  p("This graph uses the median death rate per 100,000 people to prevent our
+    interpretations from being skewed by outliers. Several counties, such as
+    Los Angeles, have extremely high death rates and as a result increase the
+    mean death rate of their state significantly."),
+  h2("What are some findings from the data?"),
+  p("From this visualization, we can see that most of the states have a
+    consistent upwards trend in the death rates of 35-64 year olds since 2000.
+    This is largely concerning because heart disease becomes more common the
+    older one ages. There is an obvious need for preventative measures in some
+    way for this group of people who, originally, were not at as much risk.")
 )
 
 # barchart
-barchart_input <- sidebarPanel(uiOutput("selectState_barchart"),
-                               uiOutput("selectYear_barchart"),
-                               p("This is a chart of the median rate per 100,000 people ages 65+
-                                 of cardiovasuclar deaths difference races across all for each
-                                 state and year. We chose this graph to see if any races were disaportionally 
-                                 subject to cardiovascular disease. We chose median to get rid of 
-                                 outliers."))
+barchart_input <- sidebarPanel(
+  uiOutput("selectState_barchart"),
+  uiOutput("selectYear_barchart"),
+  p("This is a chart of the median rate per 100,000 people ages 65+
+    of cardiovasuclar deaths difference races across all for each
+    state and year. We chose this graph to see if any races were disaportionally
+    subject to cardiovascular disease. We chose median to get rid of
+    outliers.")
+)
 
 state_barchart <- mainPanel(plotlyOutput("barchart"))
 
 # The full barchart page
 barchart_page <- tabPanel(
   "Median Death Rates by Race",
-  titlePanel("Median Cardiovascular Disease and Stroke Death Rates of Various Races"),
+  titlePanel("Median Cardiovascular Disease Death Rates of Various Races"),
   sidebarLayout(
     barchart_input,
     state_barchart
@@ -116,6 +137,6 @@ ui <- navbarPage(
   map_page,
   scatterplot_ui,
   barchart_page,
-  summary_page, 
+  summary_page,
   report_page
 )
