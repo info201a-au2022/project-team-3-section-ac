@@ -5,9 +5,9 @@ account: dmang
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 7836033
-bundleId: 6612249
+bundleId: 6612348
 url: https://dmang.shinyapps.io/debug_copy/
-when: 1670532268.48353
-lastSyncTime: 1670532268.48356
+when: 1670532887.58574
+lastSyncTime: 1670532887.58575
 asMultiple: FALSE
 asStatic: FALSE
