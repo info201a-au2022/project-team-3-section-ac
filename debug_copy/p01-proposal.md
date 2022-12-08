@@ -87,16 +87,20 @@ How has cardiovascular disease rates changes over time?
 
 
 ## Discussion:
-Regarding the findings associated with the highest and lowest counties question, the main motivation for this question was to think of reasons why counties might have the highest or lowest rates, specifically if having a higher rate equates to a lower income per capita in that county and vice versa. From looking at this snippet of the data, while there is a correlation between higher rates and lower income, the other side of rates does not have as strong of a correlation. Judging this, it is safe to assume that other states also vary in correlations. These findings were important because it suggests that other factors might influence the rates. They also changed the original motivation for the question. For future analysis and findings, a researcher might use this knowledge to consider other variables that might induce or not induce cardiovascular disease and stroke mortality rates and the cities in which reside in the counties. For instance, the cost of living, access to care, and other forms of measuring income may influence why the highest income per capita county in Washington state and New York do have the lowest rates, especially when considering Seattle in Washington state and Manhattan in New York. This in turn can consider and spark solutions to decrease cardiovascular disease and stroke mortality rates. 
+Regarding the findings associated with the highest and lowest counties question, the main motivation for this question was to think of reasons why counties might have the highest or lowest rates, specifically if having a higher rate equates to a lower income per capita in that county and vice versa. From looking at this snippet of the data, while there is a correlation between higher rates and lower income, the other side of rates does not have as strong of a correlation. Judging this, it is safe to assume that other states also vary in correlations. These findings were important because it suggests that other factors might influence the rates. They also changed the original motivation for the question. For future analysis and findings, a researcher might use this knowledge to consider other variables that might induce or not induce cardiovascular disease and stroke mortality rates and the cities in which reside in the counties. For instance, the cost of living, access to care, poverty rates, and other forms of measuring income may influence why the highest income per capita county in Washington state and New York do have the lowest rates, especially when considering Seattle in Washington state and Manhattan in New York. This in turn can consider and spark solutions to decrease cardiovascular disease and stroke mortality rates. 
+
+## Conclusion:
 
 ## Acknowledgements
 I would like to thank our TA Darren for responding to so many of our questions about the assignment! Also I want to thank AG-8 for introducing to me the includeMarkdown function. 
 
 ## References
-- https://my.clevelandclinic.org/health/articles/23051-ethnicity-and-heart-disease
-- https://www.nih.gov/news-events/nih-research-matters/stress-links-poverty-inflammation-heart-disease
-- https://www.heart.org/en/news/2019/03/21/environment-culture-other-social-determinants-play-big-role-in-heart-health
-- https://healthdata.gov/dataset/Rates-and-Trends-in-Hypertension-related-Cardiovas/8sg3-w2fs
-- https://healthdata.gov/dataset/Stroke-Mortality-Data-Among-US-Adults-35-by-State-/h9by-wuv2
-- https://healthdata.gov/dataset/Heart-Disease-Mortality-Data-Among-US-Adults-35-by/pwn5-iqp5
-- https://health.clevelandclinic.org/is-heart-disease-curable/ (photo)
+- (2022). [Digital Drawing]. https://health.clevelandclinic.org/is-heart-disease-curable/ 
+ - Centers for Disease Control and Prevention. Heart Disease Mortality Data Among US Adults (35+) by State/Territory and County – 2016-2018 | Chronic Disease and Health Promotion Data & Indicators. 29 Apr. 2020, https://chronicdata.cdc.gov/Heart-Disease-Stroke-Prevention/Heart-Disease-Mortality-Data-Among-US-Adults-35-by/6x7h-usvx. 
+- Environment, culture, other social determinants play big role in heart health. (2019, March 21). Www.Heart.Org. https://www.heart.org/en/news/2019/03/21/environment-culture-other-social-determinants-play-big-role-in-heart-health
+- Heart disease risk: How race and ethnicity play a role. (2022, May 15). Cleveland Clinic. https://my.clevelandclinic.org/health/articles/23051-ethnicity-and-heart-disease
+- List of New York locations by per capita income. (2022). In Wikipedia. https://en.wikipedia.org/w/index.php?title=List_of_New_York_locations_by_per_capita_income&oldid=1076079141
+- List of Washington locations by per capita income. (2022). In Wikipedia. https://en.wikipedia.org/w/index.php?title=List_of_Washington_locations_by_per_capita_income&oldid=1081871636
+- Rates and Trends in Hypertension-Related Cardiovascular Disease Mortality Among US Adults (35+) by County, Age Group, Race/Ethnicity, and Sex – 2000-2019 | Chronic Disease and Health Promotion Data & Indicators. 19 Feb. 2022, https://chronicdata.cdc.gov/Heart-Disease-Stroke-Prevention/Rates-and-Trends-in-Hypertension-related-Cardiovas/uc9k-vc2j. 
+- Stress links poverty to inflammation and heart disease. (2019, July 8). National Institutes of Health (NIH). https://www.nih.gov/news-events/nih-research-matters/stress-links-poverty-inflammation-heart-disease
+- Stroke Mortality Data Among US Adults (35+) by State/Territory and County – 2017-2019 | HealthData.Gov. 18 May 2021, https://healthdata.gov/dataset/Stroke-Mortality-Data-Among-US-Adults-35-by-State-/h9by-wuv2. 

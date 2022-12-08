@@ -63,11 +63,11 @@ scatterplot_ui <- tabPanel(
         "scatterplotState",
         "Select a State",
         c(
-          "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FL", "GA", "HI",
-          "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN",
-          "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH",
-          "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA",
-          "WV", "WI", "WY"
+          "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FL", "GA",
+          "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA",
+          "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY",
+          "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX",
+          "UT", "VT", "VA", "WA", "WV", "WI", "WY"
         )
       )
     ),
@@ -80,11 +80,13 @@ scatterplot_ui <- tabPanel(
 # barchart
 barchart_input <- sidebarPanel(uiOutput("selectState_barchart"),
                                uiOutput("selectYear_barchart"),
-                               p("This is a chart of the median rate per 100,000 people ages 65+
-                                 of cardiovasuclar deaths difference races across all for each
-                                 state and year. We chose this graph to see if any races were disaportionally 
-                                 subject to cardiovascular disease. We chose median to get rid of 
-                                 outliers."))
+                               p("This is a chart of the median rate per
+                                 100,000 people ages 65+ of cardiovascular
+                                 deaths among different races across all for
+                                 each state and year. We chose this graph to
+                                 see if any races were disproportionally
+                                 subject to cardiovascular disease. We chose
+                                 the median to get rid of outliers."))
 
 state_barchart <- mainPanel(plotlyOutput("barchart"))
 # state_barchart <- mainPanel(p("test"))
@@ -92,7 +94,8 @@ state_barchart <- mainPanel(plotlyOutput("barchart"))
 # The full barchart page
 barchart_page <- tabPanel(
   "Median Death Rates by Race",
-  titlePanel("Median Cardiovascular Disease and Stroke Death Rates of Various Races"),
+  titlePanel(paste("Median Cardiovascular Disease and Stroke Death Rates",
+                   "of Various Races")),
   sidebarLayout(
     barchart_input,
     state_barchart

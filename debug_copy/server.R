@@ -65,7 +65,7 @@ server <- function(input, output) {
   map_plot <- reactive({
     map_data <- df_years %>%
       filter(LocationAbbr %in% input$state) %>%
-      filter(Year %in% input$year) %>% 
+      filter(Year %in% input$year) %>%
       filter(Stratification1 %in% input$age)
     
     map_plot <- plot_usmap(
@@ -77,8 +77,8 @@ server <- function(input, output) {
         label = scales::comma
       ) +
       labs(title = paste(
-        "Heart disease/stroke mortality",
-        "rates per 100,000 people"
+        input$state, "heart disease/stroke mortality",
+        "rates per 100,000 people in", input$year
       )) +
       theme(
         legend.position = "right",
