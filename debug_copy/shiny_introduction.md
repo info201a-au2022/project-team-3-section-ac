@@ -1,12 +1,14 @@
 ![Drawing of a man about to have a stroke](heart_disease_photo.jpeg)
 
+Image source: Cleveland Clinic
+
 ## Introduction 
 
 Heart disease has been the leading cause of death in the United States for decades. Despite knowing this, efforts made by the government and health centers to help mitigate the number of deaths have been underwhelming. Our project is designed to analyze the trends in death rates among people who suffer from cardiovascular diseases. Specifically, we are searching for common characteristics that will help to identify the inequalities people face within the healthcare research, diagnosis, and treatment stages for cardiovascular diseases. To do this, we will analyze death rates of cardiovascular disease datasets provided by the CDC. Our goal for this project is to create and provide accessible data visualizations and information to everyone in hopes that the people directly involved, such as policymakers and doctors, understand the possible inequitable conditions that affect people when it comes to cardiovascular disease and strive to make efforts that address those inequalities.
 
 ## Problem Domain:
  - Project framing
-  - Our problem domain concerns physical health, specifically cardiovascular disease. The main question in mind on thinking about this problem are who is at risk of getting cardiovascular disease. How might the government seek to solve, or at least alleviate this issue? How might society need to change to lower death rates of cardiovascular disease?
+    - Our problem domain concerns physical health, specifically cardiovascular disease. The main question in mind on thinking about this problem are who is at risk of getting cardiovascular disease. How might the government seek to solve, or at least alleviate this issue? How might society need to change to lower death rates of cardiovascular disease?
 - Human Values
   - As implied, human health and safety are human values that are within the problem domain. These values originate from trying to increase population lifespan in the US as cardiovascular disease is one of the leading causes of death. Another human value is income differences. According to the National Institutes of Health, there is a negative correlation of risk of heart disease to income levels; people of lower income and highly stressed people are at higher risk for getting having a cardiac arrest, along with other disease. One more potential human value is racial justice. It originates from the racial disparities in heart disease. According to Cleveland Clinic, race and ethnicity is not considered as a biological trait but rather social constructs, therefore disparities are rooted in social factors, known as social determinants of health, rather than genetic ones. One value tension with understanding the impact this disease has on the US is privacy and autonomy. Lifestyle changes like quiting smoking must be done to lower risk of heart disease, but forcing people to make these lifestyle changes may pose a problem to their autonomy.
 - Direct Stakeholders
